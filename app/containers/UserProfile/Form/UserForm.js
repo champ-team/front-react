@@ -53,10 +53,7 @@ const UserForm = ({ state, handleInputChange, submitForm, errors }) => (
 
 UserForm.propTypes = {
   state: PropTypes.object,
-  timezones: PropTypes.object,
-  updateDisabled: PropTypes.object,
   handleInputChange: PropTypes.func,
-  handleUpdateDisabledChange: PropTypes.func,
   submitForm: PropTypes.func,
   errors: PropTypes.object,
 };

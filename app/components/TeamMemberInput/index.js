@@ -11,11 +11,13 @@ import { API_ROOT } from '../../api-config';
 import './style.css';
 
 /* eslint-disable react/prefer-stateless-function */
-class MemberInput extends React.PureComponent {
+class TeamMemberInput extends React.PureComponent {
   constructor(props) {
     super(props);
-    this.state = props.state;
-    this.state.suggestions = [];
+    // this.state = props.state;
+    this.state = {
+      suggestions: [],
+    };
 
     this.handleMemberSelect = this.handleMemberSelect.bind(this);
     this.handleMemberChange = this.handleMemberChange.bind(this);
@@ -63,7 +65,7 @@ class MemberInput extends React.PureComponent {
   render() {
     return (
       <div>
-        <FormattedMessage {...messages.airportPlaceholder}>
+        <FormattedMessage {...messages.memberPlaceholder}>
           {placeholder => (
             <input
               name="airport"
@@ -99,7 +101,7 @@ class MemberInput extends React.PureComponent {
     );
   }
 }
-MemberInput.propTypes = {
+TeamMemberInput.propTypes = {
   state: PropTypes.object,
   handleMemberChange: PropTypes.func,
   // dispatch: PropTypes.func.isRequired,
@@ -121,4 +123,4 @@ const withConnect = connect(
   mapDispatchToProps,
 );
 
-export default compose(withConnect)(MemberInput);
+export default compose(withConnect)(TeamMemberInput);
