@@ -6,6 +6,7 @@ import styled from 'styled-components';
 import { FormattedMessage } from 'react-intl';
 import messages from './messages';
 import { ROUTE_USER_DASHBOARD } from '../route-names';
+import Routes from '../routes';
 
 const ITag = ({ className }) => <i className={className} />;
 
@@ -30,6 +31,33 @@ const Navbar = () => (
           <StyledI className="fa fa-tachometer-alt" />
           <FormattedMessage {...messages.dashboard} />
         </NavLink>
+      </li>
+      <li className="nav-item dropdown">
+        <NavLink
+          strict
+          to="/user"
+          className="nav-link dropdown-toggle"
+          activeClassName="active"
+          id="navbarDropdown"
+          role="button"
+          data-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          Temp links
+        </NavLink>
+        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+          {Routes.map(routeObj => (
+            <NavLink
+              strict
+              to={routeObj.path}
+              className="dropdown-item"
+              activeClassName="active"
+            >
+              {routeObj.path}
+            </NavLink>
+          ))}
+        </div>
       </li>
     </ul>
   </div>
