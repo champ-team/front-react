@@ -15,19 +15,17 @@ const TeamForm = ({
   errors,
 }) => (
   <form onSubmit={submitForm}>
-    <RowJustify size={6}>
-      <TextInputGroup
-        name="name"
-        type="text"
-        handleInputChange={handleInputChange}
-        state={state.name}
-        error={errors}
-      />
-      <TeamMemberInput
-        handleMemberChange={handleInputChange}
-        state={state.member}
-      />
-    </RowJustify>
+    <TextInputGroup
+      name="name"
+      type="text"
+      handleInputChange={handleInputChange}
+      state={state.name}
+      error={errors}
+    />
+    <TeamMemberInput
+      handleMemberChange={handleInputChange}
+      state={state.member}
+    />
     <hr />
     <RowJustify size={6}>
       <button type="submit" className="btn btn-primary btn-block">

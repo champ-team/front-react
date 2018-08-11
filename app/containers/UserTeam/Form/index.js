@@ -25,6 +25,7 @@ import { create, get, update, updateValue } from '../actions';
 import reducer from '../reducer';
 import { ROUTE_USER_DASHBOARD } from '../../User/route-names';
 import TeamForm from './TeamForm';
+import RowJustify from '../../../components/bootstrap/RowJustify';
 
 /* eslint-disable react/prefer-stateless-function */
 export class UserTeamForm extends React.PureComponent {
@@ -67,18 +68,20 @@ export class UserTeamForm extends React.PureComponent {
     }
 
     return (
-      <Card
-        url={ROUTE_USER_DASHBOARD}
-        title={<FormattedMessage {...messages.header} />}
-      >
-        <TeamForm
-          state={this.props.item}
-          handleInputChange={this.handleInputChange}
-          submitForm={this.submitForm}
-          isUpdate={this.props.isUpdate}
-          errors={this.props.errors}
-        />
-      </Card>
+      <RowJustify size={6}>
+        <Card
+          url={ROUTE_USER_DASHBOARD}
+          title={<FormattedMessage {...messages.header} />}
+        >
+          <TeamForm
+            state={this.props.item}
+            handleInputChange={this.handleInputChange}
+            submitForm={this.submitForm}
+            isUpdate={this.props.isUpdate}
+            errors={this.props.errors}
+          />
+        </Card>
+      </RowJustify>
     );
   }
 }

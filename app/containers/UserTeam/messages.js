@@ -9,7 +9,7 @@ import { defineMessages } from 'react-intl';
 export default defineMessages({
   header: {
     id: 'app.containers.UserTeam.header',
-    defaultMessage: 'Activities',
+    defaultMessage: 'Team Setup',
   },
   create: {
     id: 'app.containers.UserTeam.create',

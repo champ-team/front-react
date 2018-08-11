@@ -9,6 +9,7 @@ import messages from './messages';
 
 import { API_ROOT } from '../../api-config';
 import './style.css';
+import TextInputGroup from '../TextInputGroup';
 
 /* eslint-disable react/prefer-stateless-function */
 class TeamMemberInput extends React.PureComponent {
@@ -23,10 +24,7 @@ class TeamMemberInput extends React.PureComponent {
     this.handleMemberChange = this.handleMemberChange.bind(this);
   }
 
-  handleMemberChange(event) {
-    const { target } = event;
-    const { value } = target;
-
+  handleMemberChange(name, value) {
     this.setState(
       {
         id: '',
@@ -67,15 +65,12 @@ class TeamMemberInput extends React.PureComponent {
       <div>
         <FormattedMessage {...messages.memberPlaceholder}>
           {placeholder => (
-            <input
+            <TextInputGroup
               name="airport"
               type="text"
-              className="form-control"
-              id="Member"
-              placeholder={placeholder}
-              value={this.state.name}
-              onChange={this.handleMemberChange}
-              autoComplete="off"
+              text={placeholder}
+              state={this.state.name}
+              handleInputChange={this.handleMemberChange}
             />
           )}
         </FormattedMessage>

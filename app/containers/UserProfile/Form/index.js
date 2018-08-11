@@ -24,6 +24,7 @@ import {
 import { get, update, updateValue } from '../actions';
 import reducer from '../reducer';
 import UserForm from './UserForm';
+import RowJustify from '../../../components/bootstrap/RowJustify';
 
 /* eslint-disable react/prefer-stateless-function */
 export class UserProfileForm extends React.PureComponent {
@@ -59,17 +60,19 @@ export class UserProfileForm extends React.PureComponent {
     }
 
     return (
-      <Card
-        url={ROUTE_USER_DASHBOARD}
-        title={<FormattedMessage {...messages.header} />}
-      >
-        <UserForm
-          state={this.props.item.toJS()}
-          handleInputChange={this.handleInputChange}
-          submitForm={this.submitForm}
-          errors={this.props.errors}
-        />
-      </Card>
+      <RowJustify size={6}>
+        <Card
+          url={ROUTE_USER_DASHBOARD}
+          title={<FormattedMessage {...messages.header} />}
+        >
+          <UserForm
+            state={this.props.item.toJS()}
+            handleInputChange={this.handleInputChange}
+            submitForm={this.submitForm}
+            errors={this.props.errors}
+          />
+        </Card>
+      </RowJustify>
     );
   }
 }
